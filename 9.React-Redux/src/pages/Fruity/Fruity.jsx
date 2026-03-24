@@ -1,10 +1,12 @@
 import React from "react";
 import FruityCart from "./FruityCart.jsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { add, remove } from "../../features/fruitsCart.js";
 
 export default function Fruity() {
   const fruitsList = useSelector((state) => state.fruits.list);
   console.log("fruitsList", fruitsList);
+  const dispatch = useDispatch();
 
   return (
     <div className="bg-emerald-600 p-4">
@@ -25,10 +27,16 @@ export default function Fruity() {
               <p className="text-lg font-semibold">Per unit : {fruit.price}$</p>
             </div>
             <div className="flex gap-2 text-slate-100">
-              <button className="w-full bg-green-600 hover:bg-green-500 rounded text-lg border-green-900">
+              <button
+                onClick={() => dispatch(add(fruit))}
+                className="w-full bg-green-600 hover:bg-green-500 rounded text-lg border-green-900"
+              >
                 Add one
               </button>
-              <button className="w-full bg-red-600 hover:bg-red-500 rounded text-lg border-red-900">
+              <button
+                onClick={() => dispatch(remove(fruit))}
+                className="w-full bg-red-600 hover:bg-red-500 rounded text-lg border-red-900"
+              >
                 Remove one
               </button>
             </div>
