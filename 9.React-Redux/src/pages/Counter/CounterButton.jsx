@@ -1,6 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { increment, decrement, multiply, divide } from "../features/counter.js";
+import {
+  increment,
+  decrement,
+  multiply,
+  divide,
+} from "../../features/counter.js";
 
 const CounterButton = () => {
   const dispatch = useDispatch();

@@ -1,9 +1,11 @@
-import Counter from "./pages/Counter.jsx";
+import Counter from "./pages/Counter/Counter.jsx";
+import Fruity from "./pages/Fruity/Fruity.jsx";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-700 px-4">
+    <div className="min-h-screen">
       <div className="mx-auto max-w-3xl pt-10 pb-20">
+        <Fruity />
         <Counter />
       </div>
     </div>

@@ -4,7 +4,7 @@ import CounterButton from "./CounterButton.jsx";
 
 export default function Counter() {
   return (
-    <div>
+    <div className="bg-slate-700 p-4">
       <CounterResult />
       <CounterButton />
     </div>
