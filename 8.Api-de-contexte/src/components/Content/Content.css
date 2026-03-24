@@ -1,0 +1,9 @@
+h1 {
+    margin-bottom: 15px;
+}
+
+.container {
+    padding: 125px 15px 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
