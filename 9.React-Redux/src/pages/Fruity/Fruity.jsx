@@ -5,7 +5,9 @@ import { add, remove } from "../../features/fruitsCart.js";
 
 export default function Fruity() {
   const fruitsList = useSelector((state) => state.fruits.list);
+
   console.log("fruitsList", fruitsList);
+
   const dispatch = useDispatch();
 
   return (

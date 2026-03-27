@@ -15,14 +15,17 @@ export const counter = createSlice({
     },
     decrement: (state, action) => {
       console.log(action);
+
       state.value = state.value - action.payload;
     },
     multiply: (state, action) => {
       console.log(action);
+
       state.value *= 10;
     },
     divide: (state, action) => {
       console.log(action);
+
       state.value /= 10;
     },
   },
