@@ -7,6 +7,7 @@ export default function Fruity() {
   const fruitsList = useSelector((state) => state.fruits.list);
 
   console.log("fruitsList", fruitsList);
+  console.log("add", add);
 
   const dispatch = useDispatch();
 
