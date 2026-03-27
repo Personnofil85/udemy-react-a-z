@@ -7,6 +7,7 @@ import fruitsCACA from "./features/fruitsCart.js";
 import logger from "redux-logger";
 // Le thunk de middleware permet d'exécuter des fonctions quand on les passe à des actions.
 import users from "./features/users.js";
+import chrono from "./features/chrono.js";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     fruits,
     fruitCart: fruitsCACA,
     users,
+    chrono,
   },
   // Middlewares = mécanisme qui permet d'intercepter les actions et qui va permettre d'effectuer certaines actions secondaires.
   // Attention next() va vraiment bloquer les autres actions et effectuer l'action du middleware.
