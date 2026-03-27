@@ -5,12 +5,15 @@ import fruitsCACA from "./features/fruitsCart.js";
 // Logger permet d'afficher des logs dans la console pour voir les actions et les states du store étape par étape.
 // Très utile pour décortiquer le fonctionnement du store avec des middlewares.
 import logger from "redux-logger";
+// Le thunk de middleware permet d'exécuter des fonctions quand on les passe à des actions.
+import users from "./features/users.js";
 
 export const store = configureStore({
   reducer: {
     counter,
     fruits,
     fruitCart: fruitsCACA,
+    users,
   },
   // Middlewares = mécanisme qui permet d'intercepter les actions et qui va permettre d'effectuer certaines actions secondaires.
   // Attention next() va vraiment bloquer les autres actions et effectuer l'action du middleware.
