@@ -7,6 +7,8 @@ export default function BoxPanel() {
   const boxState = useSelector((state) => state.boxProperties);
 
   const boxInputs = boxState.map((input, index) => {
+    console.log("inputData", input);
+
     if (input.type === "range") {
       return <BoxRange key={index} inputData={input} />;
     } else if (input.type === "color") {

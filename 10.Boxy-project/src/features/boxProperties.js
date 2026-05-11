@@ -38,10 +38,14 @@ export const boxSlice = createSlice({
   name: "boxProperties",
   initialState,
   reducers: {
-    updateBoxValues: (state, action) => {},
+    updateBoxValue: (state, action) => {
+      // Tu me trouves l'élément dont el.inputNumber === action.payload.inputNumber. Une fois trouvé, tu me prends la propriété value et tu lui donnes la valeur d'action.payload.value
+      state.find((el) => el.inputNumber === action.payload.inputNumber).value =
+        action.payload.value;
+    },
   },
 });
 
-export const { updateBoxValues } = boxSlice.actions;
+export const { updateBoxValue } = boxSlice.actions;
 
 export default boxSlice.reducer;
