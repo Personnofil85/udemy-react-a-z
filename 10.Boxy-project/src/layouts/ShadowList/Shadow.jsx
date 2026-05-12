@@ -24,7 +24,7 @@ export default function Shadow({ shadow, panelNumber }) {
       return (
         <ShadowRange
           key={index}
-          inputData={shadow.inputs}
+          inputData={shadow.inputs[index]}
           shadowID={shadow.id}
         />
       );
@@ -32,7 +32,7 @@ export default function Shadow({ shadow, panelNumber }) {
       return (
         <ShadowColorPicker
           key={index}
-          inputData={shadow.inputs.index}
+          inputData={shadow.inputs[index]}
           shadowID={shadow.id}
         />
       );
