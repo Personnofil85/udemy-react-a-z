@@ -28,7 +28,7 @@ export default function LeftContainer() {
           );
         })}
       </div>
-      <div>{tabList[tabs].component}</div>
+      <div className="h-full overflow-auto">{tabList[tabs].component}</div>
     </div>
   );
 }

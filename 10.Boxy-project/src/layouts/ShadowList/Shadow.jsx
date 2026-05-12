@@ -62,7 +62,7 @@ export default function Shadow({ shadow, panelNumber }) {
           toggleShadow ? "max-h-[500px]" : "max-h-0"
         }`}
       >
-        <div className="flex items-end px-6 py-4">
+        <div className="flex items-end px-6 pt-4">
           <ShadowCheckbox name={"active"} shadowID={shadow.id} />
           <ShadowCheckbox name={"inset"} shadowID={shadow.id} />
           <button className="ml-auto text-sm bg-red-600 text-white hover:bg-red-700 py-1 px-3 rounded">
