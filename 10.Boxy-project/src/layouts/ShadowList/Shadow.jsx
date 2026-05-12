@@ -14,6 +14,8 @@ export default function Shadow({ shadow, panelNumber }) {
     }
   }, []);
 
+  console.log("toggleShadow = ", toggleShadow);
+
   // On affiche les inputs de chaque shadow
   const shadowInputs = shadow.inputs.map((input, index) => {
     console.log("inputData", input);
@@ -53,18 +55,21 @@ export default function Shadow({ shadow, panelNumber }) {
           alt=""
         />
       </button>
-      {toggleShadow && (
-        <>
-          <div className="flex items-end px-6 py-4">
-            {/*<Checkbox />*/}
-            {/*<Checkbox />*/}
-            <button className="ml-auto text-sm bg-red-600 text-white hover:bg-red-700 py-1 px-3 rounded">
-              Remove
-            </button>
-          </div>
-          <div className="px-6 py-4">{shadowInputs}</div>
-        </>
-      )}
+      {/* On rend visible le shadow si toggleShadow est true */}
+      <div
+        className={`transition-all duration-300 ease-linear overflow-hidden ${
+          toggleShadow ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="flex items-end px-6 py-4">
+          {/*<Checkbox />*/}
+          {/*<Checkbox />*/}
+          <button className="ml-auto text-sm bg-red-600 text-white hover:bg-red-700 py-1 px-3 rounded">
+            Remove
+          </button>
+        </div>
+        <div className="px-6 py-4">{shadowInputs}</div>
+      </div>
     </li>
   );
 }
