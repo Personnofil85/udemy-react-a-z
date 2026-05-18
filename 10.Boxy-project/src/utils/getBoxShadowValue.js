@@ -5,18 +5,24 @@ export default function getBoxShadowValue(shadows) {
   let finalString = "";
 
   shadows.forEach((shadow) => {
+    console.log("shadow >>>>>>> ", shadow);
+
     if (shadow.active) {
       shadow.inputs.forEach((input) => {
+        console.log("shadow.type = ", input.type);
+
         if (input.type === "range") finalString += `${input.value}px `;
         else if (input.type === "color") finalString += `${input.value} `;
       });
 
-      if (shadow.type === "inset") finalString = ` inset`;
+      if (shadow.inset) finalString += `inset`;
 
       if (shadows.indexOf(shadow) === shadows.length - 1) finalString += ";";
       else finalString += ",";
     }
   });
+
+  console.log("finalString = ", finalString);
 
   return finalString;
 }
