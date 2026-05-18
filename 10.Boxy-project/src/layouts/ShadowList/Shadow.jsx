@@ -3,8 +3,11 @@ import Chevron from "../../assets/chevron.svg";
 import ShadowRange from "./ShadowRange.jsx";
 import ShadowColorPicker from "./ShadowColorPicker.jsx";
 import ShadowCheckbox from "./ShadowCheckbox.jsx";
+import { removeShadow } from "../../features/shadows.js";
+import { useDispatch } from "react-redux";
 
 export default function Shadow({ shadow, panelNumber }) {
+  const dispatch = useDispatch();
   const [toggleShadow, setToggleShadow] = useState(false);
 
   // On active le toggleShadow pour le premier shadow et ferme les autres
@@ -16,6 +19,7 @@ export default function Shadow({ shadow, panelNumber }) {
   }, []);
 
   console.log("toggleShadow = ", toggleShadow);
+  console.log("shadow = ", shadow);
 
   // On affiche les inputs de chaque shadow
   const shadowInputs = shadow.inputs.map((input, index) => {
@@ -65,7 +69,10 @@ export default function Shadow({ shadow, panelNumber }) {
         <div className="flex items-end px-6 pt-4">
           <ShadowCheckbox name={"active"} shadowID={shadow.id} />
           <ShadowCheckbox name={"inset"} shadowID={shadow.id} />
-          <button className="ml-auto text-sm bg-red-600 text-white hover:bg-red-700 py-1 px-3 rounded">
+          <button
+            onClick={() => dispatch(removeShadow(shadow.id))}
+            className="ml-auto text-sm bg-red-600 text-white hover:bg-red-700 py-1 px-3 rounded"
+          >
             Remove
           </button>
         </div>
