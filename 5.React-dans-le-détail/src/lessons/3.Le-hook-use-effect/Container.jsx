@@ -163,7 +163,7 @@ export default function Container() {
         ))}
       </div>
 
-      <div className="effect-lab">
+      <div className="lab">
         <div>
           <CodeBlock code={codeFor(mode)} highlight={{ 6: "active" }} />
           {/* key : changer de mode recrée la démo, qui repart de zéro */}

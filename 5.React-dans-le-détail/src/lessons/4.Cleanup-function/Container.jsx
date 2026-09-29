@@ -159,7 +159,7 @@ export default function Container() {
         )}
       </div>
 
-      <div className="cleanup-lab">
+      <div className="lab">
         <div>
           <CodeBlock
             code={code}

@@ -1,19 +1,6 @@
-/* ---------- Laboratoire : code + démo à gauche, journal à droite ---------- */
-.cleanup-lab {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 8px;
-}
-
+/* ---------- Démo ---------- */
 .lesson .toggle-card {
   margin-top: 12px;
-}
-
-.tabs-hint {
-  align-self: center;
-  font-size: 0.85rem;
-  color: var(--muted);
 }
 
 /* ---------- Chronos ---------- */
@@ -72,12 +59,5 @@
 @keyframes float {
   50% {
     transform: translateY(-4px);
-  }
-}
-
-/* ---------- Petits écrans ---------- */
-@media (max-width: 700px) {
-  .cleanup-lab {
-    grid-template-columns: 1fr;
   }
 }

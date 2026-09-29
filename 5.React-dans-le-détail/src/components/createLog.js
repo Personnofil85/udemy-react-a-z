@@ -9,7 +9,7 @@ export default function createLog() {
 
   return {
     push(type, text) {
-      entries = [...entries, { id: nextId++, type, text }].slice(-10);
+      entries = [...entries, { id: nextId++, type, text }].slice(-30);
       notify();
     },
     clear() {
