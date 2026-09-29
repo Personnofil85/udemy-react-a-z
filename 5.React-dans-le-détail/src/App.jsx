@@ -1,6 +1,7 @@
 import Container from "./lessons/1.Les-fragments/Container.jsx";
 import Container2 from "./lessons/2.La-règle-des-hooks/Container.jsx";
 import Container3 from "./lessons/3.Le-hook-use-effect/Container.jsx";
+import Container4 from "./lessons/4.Cleanup-function/Container.jsx";
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <Container2 />
       <hr />
       <Container3 />
+      <hr />
+      <Container4 />
     </div>
   );
 }
