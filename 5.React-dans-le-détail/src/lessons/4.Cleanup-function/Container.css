@@ -1,0 +1,83 @@
+/* ---------- Laboratoire : code + démo à gauche, journal à droite ---------- */
+.cleanup-lab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.lesson .toggle-card {
+  margin-top: 12px;
+}
+
+.tabs-hint {
+  align-self: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Chronos ---------- */
+.timers-panel {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-bg);
+}
+
+.timers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.lesson .timers-header button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.timers-empty {
+  color: var(--muted);
+}
+
+.timers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.timer {
+  padding: 4px 10px;
+  border: 1px solid var(--ok);
+  border-radius: 999px;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.timer.ghost {
+  border-color: var(--bad);
+  background: rgba(248, 113, 113, 0.1);
+  animation: float 2s ease-in-out infinite;
+}
+
+.timers-warning {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--bad);
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 700px) {
+  .cleanup-lab {
+    grid-template-columns: 1fr;
+  }
+}

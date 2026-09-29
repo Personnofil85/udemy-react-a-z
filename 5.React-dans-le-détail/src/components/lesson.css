@@ -190,3 +190,86 @@
   border-color: var(--accent);
   background: rgba(124, 156, 255, 0.15);
 }
+/* ---------- Journal (LogPanel) ---------- */
+.log-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-bg);
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.lesson .log-header button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.log-empty {
+  margin: auto;
+  color: var(--muted);
+  text-align: center;
+}
+
+.log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.log-entry {
+  padding: 4px 8px;
+  border-left: 3px solid;
+  border-radius: 4px;
+  animation: slide-in 0.3s ease-out;
+}
+
+.log-entry.info {
+  border-color: var(--accent);
+  background: rgba(124, 156, 255, 0.08);
+}
+
+.log-entry.ok {
+  border-color: var(--ok);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.log-entry.warn {
+  border-color: var(--warn);
+  color: var(--muted);
+}
+
+.log-entry.bad {
+  border-color: var(--bad);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+/* ---------- Défis et récapitulatif ---------- */
+.challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 20px;
+}
+
+.recap td {
+  padding: 3px 16px 3px 0;
+}

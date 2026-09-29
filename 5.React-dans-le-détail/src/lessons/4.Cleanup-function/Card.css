@@ -1,6 +1,36 @@
 .card {
-    padding: 10px;
-    margin-top: 10px;
-    width: fit-content;
-    background-color: crimson;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: 1px solid var(--ok);
+  border-radius: 12px;
+  background: rgba(74, 222, 128, 0.08);
+  animation: pop-in 0.3s ease-out;
+}
+
+.card-clock {
+  font-size: 2rem;
+  animation: tick 1s steps(2) infinite;
+}
+
+.card-seconds {
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes tick {
+  50% {
+    transform: rotate(10deg);
+  }
 }

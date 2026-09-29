@@ -1,8 +1,10 @@
 import "./Container.css";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import LessonCard from "../../components/LessonCard.jsx";
 import CodeBlock from "../../components/CodeBlock.jsx";
 import Callout from "../../components/Callout.jsx";
+import LogPanel from "../../components/LogPanel.jsx";
+import createLog from "../../components/createLog.js";
 
 const colors = [
   { name: "bleu", hex: "#7c9cff" },
@@ -41,32 +43,6 @@ const [color, setColor] = useState("bleu");
 useEffect(() => {
   console.log("⚡ Effet exécuté");
 }${mode.deps});`;
-
-// Petit journal partagé entre la démo (qui écrit) et le panneau (qui lit).
-// Il vit en dehors du state de la démo : écrire dedans ne relance pas son rendu,
-// sinon chaque effet provoquerait un nouveau rendu… et une boucle infinie.
-function createLog() {
-  let entries = [];
-  let nextId = 0;
-  const listeners = new Set();
-  const notify = () => listeners.forEach((listener) => listener());
-
-  return {
-    push(type, text) {
-      entries = [...entries, { id: nextId++, type, text }].slice(-10);
-      notify();
-    },
-    clear() {
-      entries = [];
-      notify();
-    },
-    subscribe(listener) {
-      listeners.add(listener);
-      return () => listeners.delete(listener);
-    },
-    getSnapshot: () => entries,
-  };
-}
 
 function Demo({ mode, log }) {
   const [count, setCount] = useState(0);
@@ -144,31 +120,11 @@ function Demo({ mode, log }) {
   );
 }
 
-const icons = { render: "🖌️", effect: "⚡", skip: "⏭️" };
-
-function LogPanel({ log }) {
-  const entries = useSyncExternalStore(log.subscribe, log.getSnapshot);
-
-  return (
-    <div className="log-panel">
-      <div className="log-header">
-        <span>📜 Journal</span>
-        <button onClick={log.clear}>🧹 Vider</button>
-      </div>
-      {entries.length === 0 ? (
-        <p className="log-empty">Clique sur un bouton pour voir ce qui se passe…</p>
-      ) : (
-        <ol className="log-entries">
-          {entries.map((entry) => (
-            <li key={entry.id} className={`log-entry ${entry.type}`}>
-              {icons[entry.type]} {entry.text}
-            </li>
-          ))}
-        </ol>
-      )}
-    </div>
-  );
-}
+const logTypes = {
+  render: { icon: "🖌️", tone: "info" },
+  effect: { icon: "⚡", tone: "ok" },
+  skip: { icon: "⏭️", tone: "warn" },
+};
 
 export default function Container() {
   const [modeId, setModeId] = useState("count");
@@ -213,7 +169,7 @@ export default function Container() {
           {/* key : changer de mode recrée la démo, qui repart de zéro */}
           <Demo key={mode.id} mode={mode} log={log} />
         </div>
-        <LogPanel log={log} />
+        <LogPanel log={log} types={logTypes} />
       </div>
       <Callout type="tip">{mode.summary}</Callout>
 
