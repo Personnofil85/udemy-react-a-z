@@ -1,0 +1,176 @@
+/* ---------- Stepper ---------- */
+.stepper {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.step-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.lesson .step-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.lesson .step-dot.current {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.step-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.step-text {
+  margin-top: 12px;
+  min-height: 3em;
+}
+
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+/* ---------- Casiers ---------- */
+.lockers {
+  display: flex;
+  gap: 8px;
+}
+
+.locker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 96px;
+  padding: 10px 6px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-bg);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.locker-number {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.locker-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.locker-label {
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.locker.ok {
+  border-color: var(--ok);
+}
+
+.locker.pending {
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.locker.warn {
+  border-color: var(--warn);
+  transform: rotate(-3deg);
+}
+
+.locker.bad {
+  border-color: var(--bad);
+  animation: shake 0.4s ease-in-out 2;
+}
+
+/* ---------- Démo en direct ---------- */
+.demo,
+.crash-card {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+}
+
+.demo-values {
+  display: flex;
+  gap: 24px;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.crash-card {
+  border: 1px solid var(--bad);
+  background: rgba(248, 113, 113, 0.08);
+  animation: shake 0.4s ease-in-out;
+}
+
+.crash-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--bad);
+  margin-bottom: 8px;
+}
+
+.crash-message {
+  display: block;
+  margin: 6px 0 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--panel-bg);
+  font-size: 0.85rem;
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+/* ---------- Onglets ---------- */
+.tab-text {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 700px) {
+  .step-body {
+    grid-template-columns: 1fr;
+  }
+
+  .locker {
+    flex: 1;
+    width: auto;
+  }
+}

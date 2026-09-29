@@ -1,9 +1,143 @@
-/*button {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-}*/
-.count-value {
-  font-size: 24px;
-  margin-bottom: 14px;
+/* ---------- Laboratoire : code + démo à gauche, journal à droite ---------- */
+.effect-lab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ---------- Démo ---------- */
+.effect-demo {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-bg);
+}
+
+.effect-demo-values {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.effect-label {
+  display: block;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.effect-count strong {
+  font-size: 2rem;
+}
+
+.effect-color {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.effect-color .effect-label {
+  width: 100%;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.effect-demo-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Journal ---------- */
+.log-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-bg);
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.lesson .log-header button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.log-empty {
+  margin: auto;
+  color: var(--muted);
+  text-align: center;
+}
+
+.log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.log-entry {
+  padding: 4px 8px;
+  border-left: 3px solid;
+  border-radius: 4px;
+  animation: slide-in 0.3s ease-out;
+}
+
+.log-entry.render {
+  border-color: var(--accent);
+  background: rgba(124, 156, 255, 0.08);
+}
+
+.log-entry.effect {
+  border-color: var(--ok);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.log-entry.skip {
+  border-color: var(--warn);
+  color: var(--muted);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+/* ---------- Défis et récap ---------- */
+.challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 20px;
+}
+
+.recap td {
+  padding: 3px 16px 3px 0;
+}
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 700px) {
+  .effect-lab {
+    grid-template-columns: 1fr;
+  }
 }
