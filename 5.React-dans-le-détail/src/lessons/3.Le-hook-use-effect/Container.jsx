@@ -13,6 +13,7 @@ export default function Container() {
     <div>
       <h1>Le hook useEffect</h1>
       <button onClick={() => setCount(count + 1)}>+1</button>
+      <p>{count}</p>
     </div>
   );
 }
